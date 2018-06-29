@@ -18,16 +18,16 @@ import java.util.stream.Stream;
 
 public class DivideArquivo {
 
-	private static final String DIRETORIO_ARQUIVO_ENTRADA = "C:\\Desenvolvimento\\SIPLD\\LeArquivoLog\\";
-	private static final String NOME_ARQUIVO_ENTRADA = "sipld-prd.log.2018-05-23.txt";
-	private static final String DIRETORIO_ARQUIVO_SAIDA = "C:\\Desenvolvimento\\SIPLD\\LeArquivoLog\\";
-	private static final String NOME_ARQUIVO_SAIDA = "sipld-prd.log.2018-05-23_";
+	private static final String DIRETORIO_ARQUIVO_ENTRADA = "\\diretorio\\";
+	private static final String NOME_ARQUIVO_ENTRADA = "nome_arquivo.txt";
+	private static final String DIRETORIO_ARQUIVO_SAIDA = "\\diretorio\\";
+	private static final String NOME_ARQUIVO_SAIDA = "nome_arquivo_";
 	private static final long QUANTIDADE_LINHA_DIVISAO = 200000;
 
 	public static void main(String[] args) throws IOException {
 	    try (
 	        MyWriter writer = new MyWriter(QUANTIDADE_LINHA_DIVISAO);
-	        Stream<String> lines = Files.lines(Paths.get(DIRETORIO_ARQUIVO_ENTRADA + NOME_ARQUIVO_ENTRADA), StandardCharsets.ISO_8859_1);
+	        Stream<String> lines = Files.lines(Paths.get(DIRETORIO_ARQUIVO_ENTRADA + NOME_ARQUIVO_ENTRADA), StandardCharsets.ISO_8859_1);//Escolha seu Charset
 	    ) {
 	        lines.map(l -> /* Transforma aqui */ l).forEach(writer::write);
 	    }
